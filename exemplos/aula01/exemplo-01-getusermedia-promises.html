@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Exemplo #1 Curso de WebRTC - Aula 01 - prof. Denis Manzetti</title>
+  </head>
+  <body>
+    <h1>Caputarando mídias</h1>
+    <div class='block'>
+      <div class="">
+        <video id="video" class="video" autoplay></video><br>
+        <button onclick="stop('video')">Stop Video</button>
+        <button onclick="start()">Start Video</button>
+      </div>
+      <div class="">
+          <select id="selectElementId"></select>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+    let start = () => {
+      return navigator.mediaDevices.getUserMedia({video: true, audio: false})
+        .then(stream => {
+          video.srcObject = stream
+            let listTrack = arg =>{
+            }
+
+            console.log('Media Stream')
+            console.log(stream)
+            console.log('Get Video Tracks')
+            console.log(stream.getVideoTracks())
+            console.log('Get Audio Tracks')
+            console.log(stream.getAudioTracks())
+            console.log('Clone')
+            console.log(stream.clone())
+
+        })
+        .catch(e => console.log(e.name + ": "+ e.message));
+    }
+    let stop = mediaType => video.srcObject.getTracks().forEach(track => track.kind == mediaType && track.stop())
+
+
+    </script>
+  </body>
+</html>
